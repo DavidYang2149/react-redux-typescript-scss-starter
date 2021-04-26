@@ -92,11 +92,11 @@ module.exports = {
       template: pathHtml,
       // favicon: './public/favicon.ico'
     }),
-    new CopyPlugin({
-      patterns: [
-        { from: './public/', to: '' },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     { from: './public/', to: '' },
+    //   ],
+    // }),
     new CleanWebpackPlugin(),
   ],
 };
