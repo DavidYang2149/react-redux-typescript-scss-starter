@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+// FIXME: CopyPlugin Error (devServer reload failed)
+// const CopyPlugin = require("copy-webpack-plugin");
 
 const DEVELOPMENT_ENV = 'development';
 const PRODUCTION_ENV = 'production';
@@ -26,7 +27,6 @@ module.exports = {
     publicPath: mode === PRODUCTION_ENV
       ? './'
       : mode === DEVELOPMENT_ENV && '/',
-    // publicPath: './',  // './' : for build, '/' : for dev
   },
   optimization: {
     runtimeChunk: true,
@@ -46,7 +46,6 @@ module.exports = {
   },
   module: {
     rules: [
-      // we use babel-loader to load our jsx and tsx files
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
@@ -58,7 +57,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
         exclude: /node_modules/,
-        use: ['file-loader?name=[name].[ext]'], // ?name=[name].[ext] is only necessary to preserve the original file name
+        use: ['file-loader?name=[name].[ext]'],
       },
       {
         test: /\.s[ac]ss$/i,
@@ -81,22 +80,22 @@ module.exports = {
     port: 2149,
     inline: true,
     overlay: true,
-    contentBase: ['./src', './public'],
     historyApiFallback: true,
     watchOptions: {
       poll: true
     }
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: pathHtml,
       // favicon: './public/favicon.ico'
     }),
+    // FIXME: CopyPlugin Error (devServer reload failed)
     // new CopyPlugin({
     //   patterns: [
     //     { from: './public/', to: '' },
     //   ],
     // }),
-    new CleanWebpackPlugin(),
   ],
 };
