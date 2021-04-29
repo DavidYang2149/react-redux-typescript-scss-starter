@@ -1,29 +1,29 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Dispatch } from 'react';
 
-import { Todo, TodosProps } from 'src/types/todo';
+import { Todo } from 'src/types/todo';
 import { fetchTodos } from 'src/services/todo/todos';
 
-const initialState: TodosProps = {
-  todos: [],
-};
+export type TodosState = ReturnType<typeof reducer>;
+
+const initialState: Todo[] = [];
 
 const { actions, reducer } = createSlice({
   name: 'todos',
   initialState,
   reducers: {
     setTodos(state, { payload }: PayloadAction<Todo[]>) {
-      return {
+      return [
         ...state,
-        todos: [...payload],
-      };
+        ...payload,
+      ];
     },
   },
 });
 
 export function loadTodos() {
   return async (dispatch: Dispatch<PayloadAction<Todo[]>>) => {
-    const todos = await fetchTodos();
+    const todos = await fetchTodos() || [];
 
     dispatch(actions.setTodos(todos));
   };
