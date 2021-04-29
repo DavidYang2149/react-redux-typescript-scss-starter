@@ -1,4 +1,6 @@
-const todos = [
+import { Todo } from 'src/types/todo';
+
+const todos: Todo[] = [
   {
     id: 1,
     content: 'sample1',
