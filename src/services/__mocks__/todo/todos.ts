@@ -1,9 +1,7 @@
-import todos from 'src/services/__mocks__/fixtures/todos';
-
 import { Todo } from 'src/types/todo';
 
 export async function fetchTodos(): Promise<Todo[]> {
-  return Promise.resolve(todos);
+  return Promise.resolve([]);
 }
 
 export function XXX() {
