@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { TodosProps } from 'src/types/todo';
+import { Todo } from 'src/types/todo';
 import { isEmpty } from 'src/utils/tools';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos }: TodosProps) => {
+export type TodoListProps = {
+  todos: Todo[];
+};
+
+const TodoList = ({ todos }: TodoListProps) => {
   if (isEmpty(todos.length)) {
     return (
       <>
