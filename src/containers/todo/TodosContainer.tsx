@@ -9,7 +9,7 @@ import { changeTodo } from 'src/store/todo/todo';
 const TodosContainer = () => {
   const dispatch = useDispatch();
 
-  const { todo, todos: { todos } } = useSelector((state: RootState) => ({
+  const { todo, todos } = useSelector((state: RootState) => ({
     todo: state.todo,
     todos: state.todos,
   }));
