@@ -5,6 +5,6 @@ export const isEmpty = (value: unknown) => {
   return false;
 };
 
-export const XXX = () => {
-  // TODOS: Add function & Remove This funciton
+export const isNotEmpty = (value: unknown) => {
+  return !isEmpty(value);
 };
