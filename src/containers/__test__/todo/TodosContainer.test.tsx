@@ -45,4 +45,20 @@ describe('TodosContainer', () => {
       payload: { name: 'content', value: '새로운 할일' },
     });
   });
+
+  it('onClickTodoAdd', () => {
+    const { getByText } = render(<TodosContainer />);
+
+    fireEvent.click(getByText('Add Button'));
+
+    expect(dispatch).toBeCalledWith({
+      type: 'todos/setAddNewTodo',
+      payload: {
+        todo: {
+          id: 0,
+          content: '',
+        },
+      },
+    });
+  });
 });

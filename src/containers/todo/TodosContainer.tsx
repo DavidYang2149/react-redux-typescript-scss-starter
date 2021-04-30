@@ -5,6 +5,7 @@ import TodoAdd from 'src/components/todo/TodoAdd';
 import TodoList from 'src/components/todo/TodoList';
 import { RootState } from 'src/store/rootReducer';
 import { changeTodo } from 'src/store/todo/todo';
+import { setAddNewTodo } from 'src/store/todo/todos';
 
 const TodosContainer = () => {
   const dispatch = useDispatch();
@@ -19,12 +20,17 @@ const TodosContainer = () => {
     dispatch(changeTodo({ name, value }));
   };
 
+  const onClickTodoAdd = () => {
+    dispatch(setAddNewTodo({ todo }));
+  };
+
   return (
     <>
       <h3>TodosContainer</h3>
       <TodoAdd
         todo={todo}
         onChange={onChangeTodoAdd}
+        onClick={onClickTodoAdd}
       />
       <TodoList
         todos={todos}
