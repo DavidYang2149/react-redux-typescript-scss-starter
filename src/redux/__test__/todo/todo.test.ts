@@ -1,4 +1,4 @@
-import reducer, { setTodo, changeTodo, clearTodo } from 'src/store/todo/todo';
+import reducer, { setTodo, changeTodo, clearTodo } from 'src/redux/todo/todo';
 import { Todo } from 'src/types/todo';
 
 jest.mock('src/services/todo/todos');

@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import TodoAdd from 'src/components/todo/TodoAdd';
 import TodoList from 'src/components/todo/TodoList';
-import { RootState } from 'src/store/rootReducer';
-import { changeTodo, clearTodo } from 'src/store/todo/todo';
-import { setAddNewTodo } from 'src/store/todo/todos';
+import { RootState } from 'src/redux/rootReducer';
+import { changeTodo, clearTodo } from 'src/redux/todo/todo';
+import { setAddNewTodo } from 'src/redux/todo/todos';
 
 const TodosContainer = () => {
   const dispatch = useDispatch();

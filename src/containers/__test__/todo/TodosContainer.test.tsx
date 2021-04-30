@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { render, fireEvent } from '@testing-library/react';
 
-import { RootState } from 'src/store/rootReducer';
+import { RootState } from 'src/redux/rootReducer';
 
 import todo from 'src/services/__mocks__/fixtures/todo';
 import todos from 'src/services/__mocks__/fixtures/todos';

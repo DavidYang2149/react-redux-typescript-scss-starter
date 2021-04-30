@@ -7,7 +7,7 @@ import reducer, {
   setAddNewTodo,
   loadTodos,
   TodosState,
-} from 'src/store/todo/todos';
+} from 'src/redux/todo/todos';
 import { Todo } from 'src/types/todo';
 import todos from 'src/services/__mocks__/fixtures/todos';
 
