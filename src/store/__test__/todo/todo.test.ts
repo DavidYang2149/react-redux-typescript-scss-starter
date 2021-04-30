@@ -1,4 +1,4 @@
-import reducer, { changeTodo, setTodo } from 'src/store/todo/todo';
+import reducer, { setTodo, changeTodo, clearTodo } from 'src/store/todo/todo';
 import { Todo } from 'src/types/todo';
 
 jest.mock('src/services/todo/todos');
@@ -41,6 +41,14 @@ describe('todo reducer', () => {
       const state = reducer(initialState, changeTodo(contentData));
 
       expect(state).toEqual(result);
+    });
+  });
+
+  describe('clearTodo', () => {
+    it('clear todo', () => {
+      const state = reducer(initialState, clearTodo());
+
+      expect(state).toEqual(initialState);
     });
   });
 });

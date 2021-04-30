@@ -20,12 +20,19 @@ const { actions, reducer } = createSlice({
         [name]: value,
       };
     },
+    clearTodo(state) {
+      return {
+        ...state,
+        ...initialState,
+      };
+    },
   },
 });
 
 export const {
   setTodo,
   changeTodo,
+  clearTodo,
 } = actions;
 
 export default reducer;
