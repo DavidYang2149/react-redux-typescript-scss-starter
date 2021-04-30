@@ -5,6 +5,7 @@ import { isEmpty } from 'src/utils/tools';
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos }: { todos: Todo[]; }) => {
+  // TODO: length 기능 검색하여 tools utils 함수로 만들기
   if (isEmpty(todos.length)) {
     return (
       <>

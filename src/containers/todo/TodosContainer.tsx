@@ -15,11 +15,14 @@ const TodosContainer = () => {
     todos: state.todos,
   }));
 
+  // XXX: onChangeTodoAdd는 불변성과 순수함수를 지키는 함수
   const onChangeTodoAdd = (event: { target: HTMLInputElement }) => {
     const { name, value } = event.target;
     dispatch(changeTodo({ name, value }));
   };
 
+  // XXX: onClickTodoAdd는 순수함수가 아님
+  // TODO: setAddNewTodo 실행 후 input id="newTodo" value를 비우기
   const onClickTodoAdd = () => {
     dispatch(setAddNewTodo({ todo }));
   };
