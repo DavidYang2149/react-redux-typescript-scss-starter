@@ -4,6 +4,7 @@ import thunk, { ThunkDispatch } from 'redux-thunk';
 
 import reducer, {
   setTodos,
+  setAddNewTodo,
   loadTodos,
   TodosState,
 } from 'src/store/todo/todos';
@@ -31,6 +32,15 @@ describe('todos reducer', () => {
       const state = reducer(initialState, setTodos(todos));
 
       expect(state).toEqual(todos);
+    });
+  });
+
+  describe('setAddNewTodo', () => {
+    it('Add NewTodo', () => {
+      const newTodo: Todo = { id: 1, content: '새로운 할일들' };
+      const state = reducer(initialState, setAddNewTodo({ todo: newTodo }));
+
+      expect(state).toEqual([newTodo]);
     });
   });
 });

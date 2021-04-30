@@ -18,6 +18,9 @@ const { actions, reducer } = createSlice({
         ...payload,
       ];
     },
+    setAddNewTodo(state, { payload: { todo } }: PayloadAction<{ todo: Todo; }>) {
+      return [...state, { id: state.length + 1, content: todo.content }];
+    },
   },
 });
 
@@ -31,6 +34,7 @@ export function loadTodos() {
 
 export const {
   setTodos,
+  setAddNewTodo,
 } = actions;
 
 export default reducer;
