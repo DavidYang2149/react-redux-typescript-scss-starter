@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import TodoList, { TodoListProps } from 'src/components/todo/TodoList';
+import TodoList from 'src/components/todo/TodoList';
+import { Todo } from 'src/types/todo';
 
 describe('TodoList', () => {
-  const renderTodoList = ({ todos }: TodoListProps) => render((
+  const renderTodoList = ({ todos }: { todos: Todo[]; }) => render((
     <TodoList
       todos={todos}
     />
