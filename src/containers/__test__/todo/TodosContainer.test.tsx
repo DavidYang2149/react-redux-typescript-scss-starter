@@ -47,16 +47,24 @@ describe('TodosContainer', () => {
   });
 
   it('onClickTodoAdd', () => {
+    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+      todo: { id: 0, content: 'Add New Task' },
+      todos,
+    }));
+
     const { getByText } = render(<TodosContainer />);
 
     fireEvent.click(getByText('Add Button'));
+
+    // XXX: todos/setAddNewTodo, todo/clearTodo
+    expect(dispatch).toBeCalledTimes(2);
 
     expect(dispatch).toBeCalledWith({
       type: 'todos/setAddNewTodo',
       payload: {
         todo: {
           id: 0,
-          content: '',
+          content: 'Add New Task',
         },
       },
     });

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TodoAdd from 'src/components/todo/TodoAdd';
 import TodoList from 'src/components/todo/TodoList';
 import { RootState } from 'src/store/rootReducer';
-import { changeTodo } from 'src/store/todo/todo';
+import { changeTodo, clearTodo } from 'src/store/todo/todo';
 import { setAddNewTodo } from 'src/store/todo/todos';
 
 const TodosContainer = () => {
@@ -22,9 +22,9 @@ const TodosContainer = () => {
   };
 
   // XXX: onClickTodoAdd는 순수함수가 아님
-  // TODO: setAddNewTodo 실행 후 input id="newTodo" value를 비우기
   const onClickTodoAdd = () => {
     dispatch(setAddNewTodo({ todo }));
+    dispatch(clearTodo());
   };
 
   return (
