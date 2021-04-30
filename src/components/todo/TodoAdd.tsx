@@ -5,9 +5,13 @@ import { Todo } from 'src/types/todo';
 export type TodoAddProps = {
   todo: Todo;
   onChange: (event: { target: HTMLInputElement }) => void;
+  onClick: () => void;
 };
 
-const TodoAdd = ({ todo: { id, content }, onChange }: TodoAddProps) => {
+const TodoAdd = ({
+  todo: { content },
+  onChange, onClick,
+}: TodoAddProps) => {
   return (
     <div>
       <label
@@ -23,6 +27,13 @@ const TodoAdd = ({ todo: { id, content }, onChange }: TodoAddProps) => {
         value={content}
         onChange={onChange}
       />
+      {' '}
+      <button
+        type="button"
+        onClick={onClick}
+      >
+        Add Button
+      </button>
     </div>
   );
 };
