@@ -14,6 +14,6 @@ module.exports = {
   },
   modulePaths: ['./'],
   moduleNameMapper: {
-    '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
   }
 };
