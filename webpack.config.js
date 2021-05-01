@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // FIXME: CopyPlugin Error (devServer reload failed)
 // const CopyPlugin = require("copy-webpack-plugin");
 
@@ -91,6 +92,7 @@ module.exports = {
       template: pathHtml,
       // favicon: './public/favicon.ico'
     }),
+    // new BundleAnalyzerPlugin(),
     // FIXME: CopyPlugin Error (devServer reload failed)
     // new CopyPlugin({
     //   patterns: [
