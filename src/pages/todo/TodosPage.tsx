@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import TodosContainer from 'src/containers/todo/TodosContainer';
 import { loadTodos } from 'src/redux/todo/todos';
 
+import './TodosPage.scss';
+
 const TodosPage = () => {
   const dispatch = useDispatch();
 
@@ -12,10 +14,10 @@ const TodosPage = () => {
   });
 
   return (
-    <>
-      <h2>TodosPage</h2>
+    <div className="mainContainer">
+      <h2 className="titleContainer">TodosPage</h2>
       <TodosContainer />
-    </>
+    </div>
   );
 };
 
