@@ -1,12 +1,12 @@
 {
   "name": "react_redux_typescript_scss_starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "React Redux Typescript SCSS Starter",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "test": "npm run coverage && start-server-and-test start http://localhost:8080 test:e2e",
+    "test": "npm run coverage && start-server-and-test start http://localhost:2149 test:e2e",
     "test:e2e": "codeceptjs run --steps",
     "test:unit": "jest",
     "coverage": "jest --coverage",
