@@ -1,9 +1,14 @@
 import React from 'react';
 
-import { Todo } from 'src/types/todo';
 import { isEmpty } from 'src/utils/tools';
 
-const TodoItem = ({ id, content }: Todo) => {
+export type TodoItemProps = {
+  id: number;
+  content: string;
+  onRemove: (event: { target: HTMLButtonElement }) => void;
+};
+
+const TodoItem = ({ id, content, onRemove }: TodoItemProps) => {
   if (isEmpty(id)) {
     return (
       <></>
@@ -11,7 +16,16 @@ const TodoItem = ({ id, content }: Todo) => {
   }
 
   return (
-    <p>{content}</p>
+    <>
+      <p>{content}</p>
+      <button
+        type="button"
+        onClick={onRemove}
+        value={id}
+      >
+        remove
+      </button>
+    </>
   );
 };
 
