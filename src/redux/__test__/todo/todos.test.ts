@@ -5,6 +5,7 @@ import thunk, { ThunkDispatch } from 'redux-thunk';
 import reducer, {
   setTodos,
   setAddNewTodo,
+  removeTodo,
   loadTodos,
   TodosState,
 } from 'src/redux/todo/todos';
@@ -41,6 +42,14 @@ describe('todos reducer', () => {
       const state = reducer(initialState, setAddNewTodo({ todo: newTodo }));
 
       expect(state).toEqual([newTodo]);
+    });
+  });
+
+  describe('removeTodo', () => {
+    it('Remove Todo', () => {
+      const state = reducer(todos, removeTodo({ id: 1 }));
+
+      expect(state).toEqual(todos.splice(1));
     });
   });
 });

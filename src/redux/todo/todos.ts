@@ -22,6 +22,9 @@ const { actions, reducer } = createSlice({
       // TODO: length 기능 검색하여 tools utils 함수로 만들기
       return [...state, { id: state.length + 1, content: todo.content }];
     },
+    removeTodo(state, { payload: { id } }: PayloadAction<{ id: number; }>) {
+      return state.filter((todo) => todo.id !== id);
+    },
   },
 });
 
@@ -36,6 +39,7 @@ export function loadTodos() {
 export const {
   setTodos,
   setAddNewTodo,
+  removeTodo,
 } = actions;
 
 export default reducer;
