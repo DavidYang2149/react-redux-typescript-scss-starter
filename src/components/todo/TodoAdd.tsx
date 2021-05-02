@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Todo } from 'src/types/todo';
+import { isEmpty } from 'src/utils/tools';
 
 type TodoAddProps = {
   todo: Todo;
@@ -31,6 +32,7 @@ const TodoAdd = ({
       <button
         type="button"
         onClick={onClick}
+        disabled={isEmpty(content)}
       >
         Add Button
       </button>

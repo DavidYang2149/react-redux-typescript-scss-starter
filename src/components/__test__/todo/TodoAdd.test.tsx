@@ -22,17 +22,19 @@ describe('TodoAdd', () => {
 
   context('with value', () => {
     it('render TodoAdd', () => {
-      const { getByLabelText } = renderTodoAdd({ id: 0, content: 'Todo 할일' });
+      const { getByLabelText, getByText } = renderTodoAdd({ id: 0, content: 'Todo 할일' });
 
       expect(getByLabelText('New Todo')).toHaveValue('Todo 할일');
+      expect(getByText('Add Button')).not.toBeDisabled();
     });
   });
 
   context('without value', () => {
     it('render TodoAdd', () => {
-      const { getByLabelText } = renderTodoAdd({ id: 0, content: '' });
+      const { getByLabelText, getByText } = renderTodoAdd({ id: 0, content: '' });
 
       expect(getByLabelText('New Todo')).toHaveValue('');
+      expect(getByText('Add Button')).toBeDisabled();
     });
   });
 });
