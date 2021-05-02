@@ -69,4 +69,18 @@ describe('TodosContainer', () => {
       },
     });
   });
+
+  it('onClickRemoveTodo', () => {
+    const { getAllByText } = render(<TodosContainer />);
+
+    const label = getAllByText('remove') as HTMLButtonElement[];
+    expect(label[0].value).toBe('1');
+
+    fireEvent.click(label[0]);
+
+    expect(dispatch).toBeCalledWith({
+      type: 'todos/removeTodo',
+      payload: { id: 1 },
+    });
+  });
 });

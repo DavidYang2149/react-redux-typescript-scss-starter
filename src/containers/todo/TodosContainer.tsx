@@ -5,7 +5,7 @@ import TodoAdd from 'src/components/todo/TodoAdd';
 import TodoList from 'src/components/todo/TodoList';
 import { RootState } from 'src/redux/rootReducer';
 import { changeTodo, clearTodo } from 'src/redux/todo/todo';
-import { setAddNewTodo } from 'src/redux/todo/todos';
+import { removeTodo, setAddNewTodo } from 'src/redux/todo/todos';
 
 const TodosContainer = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,11 @@ const TodosContainer = () => {
     dispatch(clearTodo());
   };
 
+  const onClickRemoveTodo = (event: { target: HTMLButtonElement }) => {
+    const { value } = event.target;
+    dispatch(removeTodo({ id: parseInt(value, 10) }));
+  };
+
   return (
     <>
       <h3>TodosContainer</h3>
@@ -37,6 +42,7 @@ const TodosContainer = () => {
       />
       <TodoList
         todos={todos}
+        onRemove={onClickRemoveTodo}
       />
     </>
   );
