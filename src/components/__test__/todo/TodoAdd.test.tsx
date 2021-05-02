@@ -1,18 +1,17 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import TodoAdd from 'src/components/todo/TodoAdd';
-import { Todo } from 'src/types/todo';
+import TodoAdd, { TodoAddProps } from 'src/components/todo/TodoAdd';
 
 describe('TodoAdd', () => {
-  const onChange = jest.fn();
-  const onClick = jest.fn();
+  const onChangeMock = jest.fn();
+  const onClickMock = jest.fn();
   beforeEach(() => {
-    onChange.mockClear();
-    onClick.mockClear();
+    onChangeMock.mockClear();
+    onClickMock.mockClear();
   });
 
-  const renderTodoAdd = ({ id, content }: Todo) => render((
+  const renderTodoAdd = ({ todo: { id, content }, onChange, onClick }: TodoAddProps) => render((
     <TodoAdd
       todo={{ id, content }}
       onChange={onChange}
@@ -22,7 +21,9 @@ describe('TodoAdd', () => {
 
   context('with value', () => {
     it('render TodoAdd', () => {
-      const { getByLabelText, getByText } = renderTodoAdd({ id: 0, content: 'Todo 할일' });
+      const { getByLabelText, getByText } = renderTodoAdd({
+        todo: { id: 0, content: 'Todo 할일' }, onChange: onChangeMock, onClick: onClickMock,
+      });
 
       expect(getByLabelText('New Todo')).toHaveValue('Todo 할일');
       expect(getByText('Add Button')).not.toBeDisabled();
@@ -31,7 +32,9 @@ describe('TodoAdd', () => {
 
   context('without value', () => {
     it('render TodoAdd', () => {
-      const { getByLabelText, getByText } = renderTodoAdd({ id: 0, content: '' });
+      const { getByLabelText, getByText } = renderTodoAdd({
+        todo: { id: 0, content: '' }, onChange: onChangeMock, onClick: onClickMock,
+      });
 
       expect(getByLabelText('New Todo')).toHaveValue('');
       expect(getByText('Add Button')).toBeDisabled();

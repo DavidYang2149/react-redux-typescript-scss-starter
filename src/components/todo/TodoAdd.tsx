@@ -3,7 +3,7 @@ import React from 'react';
 import { Todo } from 'src/types/todo';
 import { isEmpty } from 'src/utils/tools';
 
-type TodoAddProps = {
+export type TodoAddProps = {
   todo: Todo;
   onChange: (event: { target: HTMLInputElement }) => void;
   onClick: () => void;
