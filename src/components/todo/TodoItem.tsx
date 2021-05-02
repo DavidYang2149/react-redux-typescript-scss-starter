@@ -20,6 +20,7 @@ const TodoItem = ({ id, content, onRemove }: TodoItemProps) => {
       <p>{content}</p>
       <button
         type="button"
+        // FIXME: need to solve Typesript error case
         onClick={onRemove}
         value={id}
       >
