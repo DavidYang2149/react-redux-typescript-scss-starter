@@ -27,9 +27,8 @@ const TodosContainer = () => {
     dispatch(clearTodo());
   };
 
-  const onClickRemoveTodo = (event: { target: HTMLButtonElement }) => {
-    const { value } = event.target;
-    dispatch(removeTodo({ id: parseInt(value, 10) }));
+  const onClickRemoveTodo = ({ id }: { id: number }) => {
+    dispatch(removeTodo({ id }));
   };
 
   return (
