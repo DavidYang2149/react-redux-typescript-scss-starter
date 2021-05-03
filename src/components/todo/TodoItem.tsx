@@ -5,7 +5,7 @@ import { isEmpty } from 'src/utils/tools';
 export type TodoItemProps = {
   id: number;
   content: string;
-  onRemove: (event: { target: HTMLButtonElement }) => void;
+  onRemove: ({ id }: { id: number }) => void;
 };
 
 const TodoItem = ({ id, content, onRemove }: TodoItemProps) => {
@@ -20,9 +20,7 @@ const TodoItem = ({ id, content, onRemove }: TodoItemProps) => {
       <p>{content}</p>
       <button
         type="button"
-        // FIXME: need to solve Typesript error case
-        onClick={onRemove}
-        value={id}
+        onClick={() => onRemove({ id })}
       >
         remove
       </button>
