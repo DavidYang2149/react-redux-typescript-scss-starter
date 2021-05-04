@@ -6,7 +6,7 @@ import TodoItem from './TodoItem';
 
 export type TodoListProps = {
   todos: Todo[];
-  onRemove: (event: { target: HTMLButtonElement }) => void;
+  onRemove: ({ id }: { id: number }) => void;
 };
 
 const TodoList = ({ todos, onRemove }: TodoListProps) => {

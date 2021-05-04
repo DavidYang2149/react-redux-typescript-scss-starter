@@ -74,7 +74,6 @@ describe('TodosContainer', () => {
     const { getAllByText } = render(<TodosContainer />);
 
     const label = getAllByText('remove') as HTMLButtonElement[];
-    expect(label[0].value).toBe('1');
 
     fireEvent.click(label[0]);
 
