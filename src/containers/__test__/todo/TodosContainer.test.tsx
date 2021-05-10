@@ -27,7 +27,7 @@ describe('TodosContainer', () => {
     render(<TodosContainer />);
   });
 
-  it('onChangeTodoAdd', () => {
+  it('handleTodoAddChange', () => {
     const { getByLabelText } = render(<TodosContainer />);
 
     const label = getByLabelText('New Todo') as HTMLInputElement;
@@ -46,7 +46,7 @@ describe('TodosContainer', () => {
     });
   });
 
-  it('onClickTodoAdd', () => {
+  it('handleTodoAddClick', () => {
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
       todo: { id: 0, content: 'Add New Task' },
       todos,
@@ -70,7 +70,7 @@ describe('TodosContainer', () => {
     });
   });
 
-  it('onClickRemoveTodo', () => {
+  it('handleTodoRemoveClick', () => {
     const { getAllByText } = render(<TodosContainer />);
 
     const label = getAllByText('remove') as HTMLButtonElement[];
