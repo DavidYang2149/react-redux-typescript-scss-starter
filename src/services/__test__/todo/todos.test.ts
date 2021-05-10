@@ -7,7 +7,7 @@ test('todos', async () => {
   expect(todos[0]).toEqual(sampleTodos[0]);
 });
 
-// TODOS: Add function & Remove This funciton
+// TODO: Add function & Remove This funciton
 test('XXX', () => {
   XXX();
 });

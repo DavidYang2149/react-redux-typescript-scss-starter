@@ -1,9 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// FIXME: CopyPlugin Error (devServer reload failed)
-// const CopyPlugin = require("copy-webpack-plugin");
 
 const DEVELOPMENT_ENV = 'development';
 const PRODUCTION_ENV = 'production';
@@ -64,40 +63,28 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           "style-loader",
-          "css-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              implementation: require("sass"),
-            },
-          },
+          "css-loader?url=false",
+          "resolve-url-loader",
+          "sass-loader",
         ]
-
       },
     ],
   },
   devServer: {
-    hot: true,
     port: 2149,
-    inline: true,
     overlay: true,
     historyApiFallback: true,
-    watchOptions: {
-      poll: true
-    }
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: pathHtml,
-      // favicon: './public/favicon.ico'
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './src/assets/images', to: './assets/images' },
+      ],
     }),
     // new BundleAnalyzerPlugin(),
-    // FIXME: CopyPlugin Error (devServer reload failed)
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: './public/', to: '' },
-    //   ],
-    // }),
   ],
 };

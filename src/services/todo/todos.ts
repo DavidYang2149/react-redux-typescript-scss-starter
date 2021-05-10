@@ -7,5 +7,5 @@ export async function fetchTodos(): Promise<Todo[]> {
 }
 
 export function XXX() {
-  // TODOS: Add function & Remove This funciton
+  // TODO: Add function & Remove This funciton
 }

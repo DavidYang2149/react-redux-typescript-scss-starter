@@ -19,7 +19,7 @@ exports.config = {
   },
   bootstrap: null,
   mocha: {},
-  name: 'equal dark',
+  name: 'RRTS Starter',
   plugins: {
     retryFailedStep: {
       enabled: true,
