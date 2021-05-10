@@ -15,19 +15,19 @@ const TodosContainer = () => {
     todos: state.todos,
   }));
 
-  // XXX: onChangeTodoAdd는 불변성과 순수함수를 지키는 함수
-  const onChangeTodoAdd = (event: { target: HTMLInputElement }) => {
+  // XXX: handleTodoAddChange 순수함수를 지키는 함수
+  const handleTodoAddChange = (event: { target: HTMLInputElement }) => {
     const { name, value } = event.target;
     dispatch(changeTodo({ name, value }));
   };
 
-  // XXX: onClickTodoAdd는 순수함수가 아님
-  const onClickTodoAdd = () => {
+  // XXX: handleTodoAddClick 순수함수가 아님 (param: todo)
+  const handleTodoAddClick = () => {
     dispatch(setAddNewTodo({ todo }));
     dispatch(clearTodo());
   };
 
-  const onClickRemoveTodo = ({ id }: { id: number }) => {
+  const handleTodoRemoveClick = ({ id }: { id: number }) => {
     dispatch(removeTodo({ id }));
   };
 
@@ -36,12 +36,12 @@ const TodosContainer = () => {
       <h3>TodosContainer</h3>
       <TodoAdd
         todo={todo}
-        onChange={onChangeTodoAdd}
-        onClick={onClickTodoAdd}
+        onChange={handleTodoAddChange}
+        onClick={handleTodoAddClick}
       />
       <TodoList
         todos={todos}
-        onRemove={onClickRemoveTodo}
+        onRemove={handleTodoRemoveClick}
       />
     </>
   );
