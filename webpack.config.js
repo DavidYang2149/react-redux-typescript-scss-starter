@@ -83,9 +83,13 @@ module.exports = {
       template: pathHtml,
     }),
     new CopyPlugin({
-      patterns: [
-        { from: './src/assets/images', to: './assets/images' },
-      ],
+      patterns: mode === PRODUCTION_ENV
+        ? [
+          { from: './src/assets/images', to: './static/css/assets/images' },
+        ]
+        : [
+          { from: './src/assets/images', to: './assets/images' },
+        ]
     }),
     new Dotenv(),
     new MiniCssExtractPlugin({
