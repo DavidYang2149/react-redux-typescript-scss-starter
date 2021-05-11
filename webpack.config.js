@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -86,6 +87,7 @@ module.exports = {
         { from: './src/assets/images', to: './assets/images' },
       ],
     }),
+    new Dotenv(),
     new MiniCssExtractPlugin({
       linkType: false,
       filename: 'static/css/[name].[contenthash:8].css',
