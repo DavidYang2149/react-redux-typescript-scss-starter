@@ -1,5 +1,5 @@
 {
-  "name": "react_redux_typescript_scss_starter",
+  "name": "react-redux-typescript-scss-starter",
   "version": "1.0.0",
   "description": "React Redux Typescript SCSS Starter",
   "main": "index.js",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DavidYang2149/react_redux_typescript_scss_starter.git"
+    "url": "git+https://github.com/DavidYang2149/react-redux-typescript-scss-starter.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DavidYang2149/react_redux_typescript_scss_starter/issues"
+    "url": "https://github.com/DavidYang2149/react-redux-typescript-scss-starter/issues"
   },
-  "homepage": "https://github.com/DavidYang2149/react_redux_typescript_scss_starter#readme",
+  "homepage": "https://github.com/DavidYang2149/react-redux-typescript-scss-starter#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
