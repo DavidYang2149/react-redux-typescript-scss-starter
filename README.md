@@ -1,8 +1,8 @@
-# react_redux_typescript_scss_starter
-- react
-- redux
-- typescript
-- scss
+# React-Redux-Typescript-Scss Starter
+- React
+- Redux
+- Typescript
+- Scss
 
 Starter 입니다.
 
