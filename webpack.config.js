@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const DEVELOPMENT_ENV = 'development';
@@ -81,6 +81,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: pathHtml,
+      templateParameters: {
+        env: mode === DEVELOPMENT_ENV ? '(개발모드)' : '',
+      },
     }),
     new CopyPlugin({
       patterns: mode === PRODUCTION_ENV
