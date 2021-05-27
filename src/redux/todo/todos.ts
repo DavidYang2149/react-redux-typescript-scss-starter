@@ -27,13 +27,14 @@ const { actions, reducer } = createSlice({
   },
 });
 
-export function loadTodos() {
-  return async (dispatch: Dispatch<PayloadAction<Todo[]>>) => {
+export const loadTodos = () => async (dispatch: Dispatch<PayloadAction<Todo[]>>) => {
+  try {
     const todos = await fetchTodos() || [];
-
     dispatch(actions.setTodos(todos));
-  };
-}
+  } catch (error) {
+    throw new Error((error as Error).message);
+  }
+};
 
 export const {
   setTodos,

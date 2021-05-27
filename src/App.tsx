@@ -7,7 +7,7 @@ import NotFoundPage from './pages/common/NotFoundPage';
 import HelloPage from './pages/common/HelloPage';
 import TodosPage from './pages/todo/TodosPage';
 
-export default function App() {
+const App = () => {
   return (
     <>
       <h1 className="sample">Hello Sample Todo</h1>
@@ -20,4 +20,6 @@ export default function App() {
       </Switch>
     </>
   );
-}
+};
+
+export default App;

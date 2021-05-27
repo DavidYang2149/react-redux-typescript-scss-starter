@@ -11,6 +11,7 @@ import reducer, {
 } from 'src/redux/todo/todos';
 import { Todo } from 'src/types/todo';
 import todos from 'src/services/__mocks__/fixtures/todos';
+import { fetchTodos } from 'src/services/todo/todos';
 
 jest.mock('src/services/todo/todos');
 
@@ -56,14 +57,32 @@ describe('todos reducer', () => {
 
 describe('todos actions', () => {
   describe('loadTodos', () => {
-    it('runs setTodos', async () => {
-      const store = mockStore([]);
+    context('without Error', () => {
+      it('runs setTodos', async () => {
+        const store = mockStore([]);
 
-      await store.dispatch(loadTodos());
+        await store.dispatch(loadTodos());
 
-      const actions = store.getActions();
+        const actions = store.getActions();
 
-      expect(actions[0]).toEqual(setTodos([]));
+        expect(actions[0]).toEqual(setTodos([]));
+      });
+    });
+
+    context('with Error', () => {
+      it('fetchTodos action failure to return error', async () => {
+        const store = mockStore([]);
+
+        (fetchTodos as jest.Mock).mockImplementation(() => {
+          throw new Error('fetchTodos error');
+        });
+
+        try {
+          await store.dispatch(loadTodos());
+        } catch (error) {
+          expect(error).toEqual(new Error('fetchTodos error'));
+        }
+      });
     });
   });
 });
