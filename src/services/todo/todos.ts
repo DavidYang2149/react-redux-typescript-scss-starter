@@ -1,10 +1,11 @@
-import todos from 'src/services/__mocks__/fixtures/todos';
+import axios from 'axios';
 
-import { Todo } from 'src/types/todo';
+import { ResponseTodos } from 'src/types/response';
 
-export async function fetchTodos(): Promise<Todo[]> {
-  return Promise.resolve(todos);
-}
+export const fetchTodos = async () => {
+  const response = await axios.get<ResponseTodos>('src/assets/db/sampleDB.json');
+  return response.data;
+};
 
 export function XXX() {
   // TODO: Add function & Remove This funciton

@@ -1,10 +1,14 @@
-import sampleTodos from 'src/services/__mocks__/fixtures/todos';
+import axios from 'axios';
 import { fetchTodos, XXX } from 'src/services/todo/todos';
 
-test('todos', async () => {
-  const todos = await fetchTodos();
+jest.mock('axios');
 
-  expect(todos[0]).toEqual(sampleTodos[0]);
+test('todos', async () => {
+  (axios as jest.Mocked<typeof axios>).get.mockImplementation(() => Promise.resolve({ data: [] }));
+  // (axios as jest.Mocked<typeof axios>).get.mockResolvedValue({ data: {} });
+  const response = await fetchTodos();
+
+  expect(response).toEqual([]);
 });
 
 // TODO: Add function & Remove This funciton
