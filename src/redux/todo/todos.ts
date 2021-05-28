@@ -29,7 +29,9 @@ const { actions, reducer } = createSlice({
 
 export const loadTodos = () => async (dispatch: Dispatch<PayloadAction<Todo[]>>) => {
   try {
-    const todos = await fetchTodos() || [];
+    const response = await fetchTodos();
+    const todos = response.todos || [];
+
     dispatch(actions.setTodos(todos));
   } catch (error) {
     throw new Error((error as Error).message);

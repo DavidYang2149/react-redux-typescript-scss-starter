@@ -58,14 +58,36 @@ describe('todos reducer', () => {
 describe('todos actions', () => {
   describe('loadTodos', () => {
     context('without Error', () => {
-      it('runs setTodos', async () => {
-        const store = mockStore([]);
+      context('with fetchTodos / return todos: []', () => {
+        it('runs setTodos', async () => {
+          const store = mockStore([]);
 
-        await store.dispatch(loadTodos());
+          (fetchTodos as jest.Mock).mockImplementation(() => {
+            return { todos: [] };
+          });
 
-        const actions = store.getActions();
+          await store.dispatch(loadTodos());
 
-        expect(actions[0]).toEqual(setTodos([]));
+          const actions = store.getActions();
+
+          expect(actions[0]).toEqual(setTodos([]));
+        });
+      });
+
+      context('with fetchTodos / return todos: null', () => {
+        it('runs setTodos', async () => {
+          const store = mockStore([]);
+
+          (fetchTodos as jest.Mock).mockImplementation(() => {
+            return { todos: null };
+          });
+
+          await store.dispatch(loadTodos());
+
+          const actions = store.getActions();
+
+          expect(actions[0]).toEqual(setTodos([]));
+        });
       });
     });
 
