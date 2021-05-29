@@ -36,3 +36,7 @@ npm run coverage
 # (Require: local server online) npm run dev 
 npm run test:e2e
 ```
+
+## Log
+
+- Add axios: 샘플 케이스 제작 및 테스트 케이스 추가.
