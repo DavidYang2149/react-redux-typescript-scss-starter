@@ -68,6 +68,10 @@ describe('TodosContainer', () => {
         },
       },
     });
+
+    expect(dispatch).toBeCalledWith({
+      type: 'todo/clearTodo',
+    });
   });
 
   it('handleTodoRemoveClick', () => {
