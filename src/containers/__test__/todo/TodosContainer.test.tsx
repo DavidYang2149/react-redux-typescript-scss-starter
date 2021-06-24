@@ -72,6 +72,21 @@ describe('TodosContainer', () => {
     expect(dispatch).toBeCalledWith({
       type: 'todo/clearTodo',
     });
+
+    // XXX: todos/setAddNewTodo, todo/clearTodo - 순서대로 실행하는지 확인
+    expect(dispatch.mock.calls[0]).toEqual([{
+      type: 'todos/setAddNewTodo',
+      payload: {
+        todo: {
+          id: 0,
+          content: 'Add New Task',
+        },
+      },
+    }]);
+
+    expect(dispatch.mock.calls[1]).toEqual([{
+      type: 'todo/clearTodo',
+    }]);
   });
 
   it('handleTodoRemoveClick', () => {
