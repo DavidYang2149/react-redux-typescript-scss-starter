@@ -18,7 +18,6 @@ const { actions, reducer } = createSlice({
       ];
     },
     setAddNewTodo(state, { payload: { todo } }: PayloadAction<{ todo: Todo; }>) {
-      // TODO: length 기능 검색하여 tools utils 함수로 만들기
       return [...state, { id: state.length + 1, content: todo.content }];
     },
     removeTodo(state, { payload: { id } }: PayloadAction<{ id: number; }>) {
