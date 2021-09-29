@@ -64,10 +64,16 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          mode === PRODUCTION_ENV ? MiniCssExtractPlugin.loader : "style-loader",
+          mode === PRODUCTION_ENV ? MiniCssExtractPlugin.loader :
+            "style-loader",
           "css-loader?url=false",
           "resolve-url-loader",
-          "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              additionalData: `@import "./src/assets/styles/helper.scss";`
+            }
+          },
         ]
       },
     ],
@@ -89,9 +95,11 @@ module.exports = {
       patterns: mode === PRODUCTION_ENV
         ? [
           { from: './src/assets/images', to: './static/css/assets/images' },
+          { from: './src/assets/fonts', to: './static/css/assets/fonts' },
         ]
         : [
           { from: './src/assets/images', to: './assets/images' },
+          { from: './src/assets/fonts', to: './assets/fonts' },
         ]
     }),
     new Dotenv(),
