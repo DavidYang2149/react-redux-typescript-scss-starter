@@ -39,4 +39,6 @@ npm run test:e2e
 
 ## Log
 
-- Add axios: 샘플 케이스 제작 및 테스트 케이스 추가.
+- Add axios: 샘플 케이스 제작 및 테스트 케이스 추가
+- Update SCSS: SCSS 구조 설정 업데이트
+- Change E2E (As-Is: codecept / To-Be: Cypress)
