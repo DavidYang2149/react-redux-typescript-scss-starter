@@ -7,9 +7,6 @@
 ## VS Code
 .vscode
 
-## CodeceptJS
-output
-
 ## Node.js
 node_modules
 
@@ -19,3 +16,12 @@ coverage
 ## Build
 dist
 build
+
+## Env
+.env
+
+## Sentry
+report.*.json
+
+## Cypress
+cypress/screenshots

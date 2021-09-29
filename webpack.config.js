@@ -88,7 +88,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: pathHtml,
       templateParameters: {
-        env: mode === DEVELOPMENT_ENV ? '(개발모드)' : '',
+        env: mode === DEVELOPMENT_ENV ? '(개발모드) ' : '',
       },
     }),
     new CopyPlugin({
