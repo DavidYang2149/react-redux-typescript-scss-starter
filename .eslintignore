@@ -16,3 +16,6 @@ jest.setup.js
 
 ## Cypress
 cypress/support
+
+## bin
+bin/

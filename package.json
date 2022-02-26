@@ -14,6 +14,9 @@
     "coverage": "jest --coverage",
     "lint": "eslint --ext ts,tsx ."
   },
+  "bin": { 
+    "react-redux-typescript-scss-starter": "./bin/generate-app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DavidYang2149/react-redux-typescript-scss-starter.git"
